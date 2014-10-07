@@ -1,4 +1,4 @@
-function validate (formId){
+function validate (formId,overriddenMessages){
 	var form = document.getElementById(formId);
 	var formInputs = form.getElementsByClassName("validate");
 	var validationArray = [];
@@ -7,10 +7,11 @@ function validate (formId){
 		validationArray.push(new targetedInputs(formInputs[i] , classMethods));
 	}
 	form.onsubmit = methodsCaller;
-	var massages = {
+	var messages = {
 		email: "email error",
 		length: "lengthmax error"
 	}
+
 	var validateMethods = {
 		email: function(){
 			return false;
@@ -19,6 +20,10 @@ function validate (formId){
 			return false;
 		}
 	};
+
+	messages = extend(messages,overriddenMessages);
+	//validateMethods = extend(validateMethods,overriddenMethods);
+
 	function methodsCaller (){
     	for( eleNum in validationArray){
     		validationElement = validationArray[eleNum]['element'];
@@ -27,7 +32,7 @@ function validate (formId){
     			var flag = validateMethods[elementValidationMethods[methodNum]]();
     			if(flag == false){
     				var node = document.createElement("span");
-    				node.innerHTML = massages[elementValidationMethods[methodNum]];
+    				node.innerHTML = messages[elementValidationMethods[methodNum]];
     				var child = form.children[findRow3(validationElement)];
         			form.insertBefore(node, child);
     				break;
@@ -55,5 +60,12 @@ function validate (formId){
 	        if (node.nodeType === 1) { ++i }
 	    }
 	    return i;
+	}
+
+	function extend(toObject, fromObject){
+	    for(var key in fromObject)
+	        if(fromObject.hasOwnProperty(key))
+	            toObject[key] = fromObject[key];
+	    return toObject;
 	}
 }
