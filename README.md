@@ -3,7 +3,7 @@
 <p>A simple customizable straight forword javascript form validator</p>
 <p>To Do list</p>
 <ul>
-	<li>Extending Massages <h1>DONE</h1></li>
+	<li>Extending Massages  DONE</li>
 	<li>Extending Validation methods</li>
 	<li>Allowing the user to invoke validation functions on any number of fields when he chooses to</li>
 </ul>
