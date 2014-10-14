@@ -3,8 +3,9 @@
 <p>A simple customizable straight forword javascript form validator</p>
 <p>To Do list</p>
 <ul>
-	<li>Extending massages</li>
-	<li>Extending validation methods</li>
+	<li>Extending Massages <h1>DONE</h1></li>
+	<li>Extending Validation methods</li>
+	<li>Allowing the user to invoke validation functions on any number of fields when he chooses to</li>
 </ul>
 
 <h1 style="color:red;">Work in Progress!!!!</h1>
